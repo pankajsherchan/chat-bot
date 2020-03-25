@@ -8,20 +8,19 @@
 }
 
 .joinInnerContainer {
-  width: 20%;
+  width: 30%;
 }
 
 .joinInput {
-  border-radius: 0;
   padding: 15px 20px;
   width: 100%;
+  border-radius: 5px red;
 }
 
-.heading {
-  color: white;
+.join .heading {
   font-size: 2.5em;
   padding-bottom: 10px;
-  border-bottom: 2px solid white;
+  color: orange !important;
 }
 
 .button {
@@ -34,6 +33,7 @@
   display: inline-block;
   border: none;
   width: 100%;
+  background-image: linear-gradient(270deg, #e6e1a1, orange) !important;
 }
 
 .mt-20 {

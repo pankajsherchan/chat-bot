@@ -1,7 +1,8 @@
+import { faHouseUser, faUserFriends } from '@fortawesome/free-solid-svg-icons';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import queryString from 'query-string';
 import React, { useEffect, useState } from 'react';
 import io from 'socket.io-client';
-import InfoBar from '../infoBar/InfoBar';
 import Input from '../input/Input';
 import Messages from '../messages/Messages';
 import './Chat.css';
@@ -49,17 +50,48 @@ const Chat = ({ location }) => {
   };
 
   return (
-    <div className='outerContainer'>
-      <div className='container'>
-        <InfoBar room={room} />
-        <Messages messages={messages} name={name} />
-        <Input
-          message={message}
-          setMessage={setMessage}
-          sendMessage={sendMessage}
-        />
+    <React.Fragment>
+      <div class='chat-container'>
+        <header class='chat-header'>
+          <h1>
+            <i class='fas fa-smile'></i> ChatCord
+          </h1>
+          <a href='index.html' class='btn'>
+            Leave Room
+          </a>
+        </header>
+
+        <main class='chat-main'>
+          <div class='chat-sidebar'>
+            <h3>
+              <FontAwesomeIcon icon={faHouseUser} />
+              <span className='chip'>JavaScript</span>
+            </h3>
+            <h3>
+              <FontAwesomeIcon icon={faUserFriends} />
+              <span className='chip'>Users</span>
+            </h3>
+
+            <ul id='users'>
+              <li>Brad</li>
+              <li>John</li>
+              <li>Mary</li>
+              <li>Paul</li>
+              <li>Mike</li>
+            </ul>
+          </div>
+          <div class='chat-messages'>
+            <Messages messages={messages} name={name} />
+
+            <Input
+              message={message}
+              setMessage={setMessage}
+              sendMessage={sendMessage}
+            />
+          </div>
+        </main>
       </div>
-    </div>
+    </React.Fragment>
   );
 };
 
